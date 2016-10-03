@@ -1,12 +1,31 @@
 <?php
-/**
-* This is an example file to help understanding how the api works.
-* This script assumes that you have already created an app on the LCTV API website
-*   and that you have selected the "confidential/authorization-grant" app type.
-* The constants $CLIENT_ID, $CLIENT_SECRET, and $REDIRECT_URL below
-*   must match your app configuration on the LCTV API website.
-* Use this script like http://your-site.net/online-status.php?channel=my-lctv-channel.
-**/
+/*\
+|*| This file is part of the LivecodingAuth wrapper library for the livecoding.tv API
+|*| Copyright 2015-2016 bill-auger <https://github.com/Wapaca/livecoding-auth/issues>
+|*|
+|*| LivecodingAuth is free software: you can redistribute it and/or modify
+|*| it under the terms of the GNU Affero General Public License as published by
+|*| the Free Software Foundation, either version 3 of the License, or
+|*| (at your option) any later version.
+|*|
+|*| LivecodingAuth is distributed in the hope that it will be useful,
+|*| but WITHOUT ANY WARRANTY; without even the implied warranty of
+|*| MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+|*| GNU Affero General Public License for more details.
+|*|
+|*| You should have received a copy of the GNU Affero General Public License
+|*| along with LivecodingAuth.  If not, see <http://www.gnu.org/licenses/>.
+\*/
+
+/*\
+|*| This is an example file to help understanding the LiveCodingAuth API wrapper library.
+|*| This script assumes that you have already created an app on the LCTV API website
+|*|   and that you have selected the "confidential/authorization-grant" app type.
+|*| The constants $CLIENT_ID, $CLIENT_SECRET, and $REDIRECT_URL below
+|*|   must match your app configuration on the LCTV API website.
+|*| Access this script like http://your-site.net/example.php?channel=your-lctv-channel.
+\*/
+
 
 require('livecodingAuth.php');
 
