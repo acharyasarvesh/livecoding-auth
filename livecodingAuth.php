@@ -55,7 +55,7 @@ if(!class_exists('LivecodingAuth')) {
       $this->client_secret = $client_secret;
       $this->redirect_url = $redirect_url;
       $this->scope = $scope;
-      $this->state = uniqid();
+      $this->state = session_id();
 
       if ($storage == TEXT_STORE) {
         $this->tokens = new LivecodingAuthTokensText();
@@ -65,7 +65,7 @@ if(!class_exists('LivecodingAuth')) {
 
       $this->auth_link = 'https://www.livecoding.tv/o/authorize/?'.http_build_query(array(
         'scope' => $this->scope,
-        'state' => $this->state,
+        'state' => session_id(),
         'redirect_uri' => $this->redirect_url,
         'response_type' => 'code',
         'client_id' => $this->client_id,
@@ -93,7 +93,7 @@ if(!class_exists('LivecodingAuth')) {
 
         // Nothing to do - yay
       }
-      else if (isset($_GET['state']) && $_GET['state'] == $this->tokens->getState() ) {
+      else if (isset($_GET['state']) && $_GET['state'] == session_id() ) {
         // Here we are returning from user auth approval link
         $this->fetchTokens($_GET['code']) ;
       }
@@ -101,7 +101,7 @@ if(!class_exists('LivecodingAuth')) {
         // Here we have not yet been authorized
 
         // Save the state before displaying auth link
-        $this->tokens->setState($this->state);
+        $this->tokens->setState(session_id());
       }
 
     } // __construct
